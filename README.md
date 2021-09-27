@@ -22,8 +22,7 @@ Mars Rover is a RESTful API. The project is purpose creating plateau and rover a
 - Run <code>composer install</code>.
 - Run <code>php artisan serve</code> then you will see application url like  http://127.0.0.1:8001.
 - After that the service will start.
-- Open the new Terminal in this folder and run <code>php artisan test<code>
-
+- Open the new Terminal in this folder and run <code>php artisan test</code>
 #Working Logic
 
 ##Versioning
