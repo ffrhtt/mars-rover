@@ -17,6 +17,8 @@
         <style>
             body {
                 font-family: 'Nunito', sans-serif;
+                padding-left: 20%;
+                padding-right: 20%;
             }
         </style>
     </head>
@@ -25,5 +27,61 @@
             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             <div class="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white">Welcome to mars rovers</div>
         </div>
+        <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+
+<p align="center">
+<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
+</p>
+
+<h1 id="about-mars-rover-case-study">About Mars Rover Case Study</h1>
+<p>Mars Rover is a RESTful API. The project is purpose creating plateau and rover and discovery at mars scenario.  Developed with PHP &amp;&amp; Laravel.</p>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li><strong><a href="https://www.php.net/downloads.php">PHP &gt; 7.x.x</a></strong></li>
+<li><strong><a href="https://getcomposer.org/download/">Composer</a></strong></li>
+<li><strong><code>extension=shmop</code> must open from php.ini file</strong></li>
+</ul>
+<h2 id="installation-test">Installation &amp;&amp; Test</h2>
+<ul>
+<li>Download Source Code <a href="https://github.com/ffrhtt/mars-rover"><b> GITHUB repository --> https://github.com/ffrhtt/mars-rover</b></a></li>
+<li>Open the Terminal/Command Prompt in source code folder.</li>
+<li>Run <code>composer install</code>.</li>
+<li>Run <code>php artisan serve</code> then you will see application url like  <a href="http://127.0.0.1:8001">http://127.0.0.1:8001</a>.</li>
+<li>After that the service will start.</li>
+<li>Open the new Terminal in this folder and run <code>php artisan test</code><h2 id="working-logic"></h2>
+</li>
+</ul>
+<h2 id="versioning">Working Logic</h2>
+<h5 id="versioning">Versioning</h5>
+<p>New versioning can defined with url by routes in <code>App\Providers\RouteServiceProvider</code> in function <code>mapApiRoutes()</code>. And <code>.\config\app.php</code> in api_latest indicates to latest version. In addition this already using  <code>.\routes\api_v1.php</code>,<code>.\routes\api_v2.php</code>  folder.</p>
+<h5 id="mars-rover-library">Mars Rover Library</h5>
+<p>There are all models in <code>.\app\MarsRovers</code> folder. <code>Plateu</code>,<code>Position</code>,<code>Rover</code>,<code>Size</code>,<code>CommandsAdapter\CommandsNasa</code></code>,<code>Data\Recorder</code></p>
+<ul>
+<li><code>CommandsAdapter\CommandsNasa</code> decoder the commands using the Adapter pattern with <code>CommandsAdapter\Commands</code></li>
+<li><code>Data\Recorder</code> uses for memory storage with <code>Data\SHMAP</code></li>
+</ul>
+<h5 id="mars-rover-http-controllers">Mars Rover Http controllers</h5>
+<p>There are all models in <code>.\app\Http\Controllers\V1</code> and <code>.\app\Http\Controllers\V2</code></p>
+<h2 id="api-endpoints-tree">API Endpoints tree</h2>
+<ul>
+<li>/api/v1 <strong>(active)</strong><ul>
+<li>/plateua<ul>
+<li>/create</li>
+<li>/get</li>
+</ul>
+</li>
+<li>/rover<ul>
+<li>/create</li>
+<li>/sent/command</li>
+<li>/get</li>
+<li>/get/state</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>/api/v2 <strong>(for future)</strong></li>
+</ul>
+<p>For more detail check to the <code>.\docs</code> folder.</p>
+
     </body>
 </html>

@@ -36,7 +36,7 @@ There are all models in <code>.\app\MarsRovers</code> folder. <code>Plateu</code
 ##### Mars Rover Http controllers
 There are all models in <code>.\app\Http\Controllers\V1</code> and <code>.\app\Http\Controllers\V2</code>
 
-## API Endpoints three
+## API Endpoints tree
 - /api/v1 **(active)**
     - /plateua
         - /create
