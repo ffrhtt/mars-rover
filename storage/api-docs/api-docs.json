@@ -1,0 +1,340 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Mars Rover Documentation",
+        "description": "L5 Swagger OpenApi description",
+        "contact": {
+            "email": "ferhatkocer25@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://127.0.0.1:8000",
+            "description": "Mars Rover API Server for local"
+        }
+    ],
+    "paths": {
+        "/projects": {
+            "get": {
+                "operationId": "e3dfa947954e394a726a0d4795bc03f2",
+                "responses": {
+                    "200": {
+                        "description": "Display a listing of projects."
+                    }
+                }
+            }
+        },
+        "/api/v1/plateau/create": {
+            "post": {
+                "tags": [
+                    "storePlateau"
+                ],
+                "summary": "Store new Plateau",
+                "description": "Api's store plateua and return to response saved data",
+                "operationId": "storePlateau",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "x": {
+                                        "type": "integer"
+                                    },
+                                    "y": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseManipulator"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/plateua/get": {
+            "get": {
+                "tags": [
+                    "PlateuaLast"
+                ],
+                "summary": "Get PlateuaLast information",
+                "description": "Returns PlateuaLast data",
+                "operationId": "getPlateuaLast",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseManipulator"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/api/v1/rover/create": {
+            "post": {
+                "tags": [
+                    "roverPlateau"
+                ],
+                "summary": "Store new Rover",
+                "description": "Api's define a rover and assign to plateau which on memory  ",
+                "operationId": "roverPlateau",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "description": "Rover position variables",
+                                "properties": {
+                                    "x": {
+                                        "description": "x axis position on the defined memory plateau",
+                                        "type": "integer"
+                                    },
+                                    "y": {
+                                        "description": "y axis position on the defined memory plateau",
+                                        "type": "integer"
+                                    },
+                                    "f": {
+                                        "description": "Rover heading variable like N,E,S,W",
+                                        "type": "string",
+                                        "example": "N"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseManipulator"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/rover/send/command": {
+            "post": {
+                "tags": [
+                    "roverSendCommand"
+                ],
+                "summary": "Control the rover",
+                "description": "Api control the rover on the plateau.",
+                "operationId": "roverSendCommand",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "description": "Rover Nasa Command Variables",
+                                "properties": {
+                                    "commands": {
+                                        "description": "Rover move variable batch like L,R,M. L:Turn 90 degree to Left,R:Turn 90 degree to Right,M: go to 1 unit on plateau ",
+                                        "type": "string",
+                                        "example": "MMMRMMML"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseManipulator"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/rover/get": {
+            "get": {
+                "tags": [
+                    "roverGet"
+                ],
+                "summary": "Get the rover",
+                "description": "get rover info.",
+                "operationId": "roverGet",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseManipulator"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/rover/get/state": {
+            "get": {
+                "tags": [
+                    "roverGetState"
+                ],
+                "summary": "Get the rover state",
+                "description": "get rover info.",
+                "operationId": "roverGetState",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseManipulator"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "PlateauController": {
+                "title": "PlateauController",
+                "description": "PlateauController",
+                "xml": {
+                    "name": "PlateauController"
+                }
+            },
+            "PlateuCreate": {
+                "title": "Plateu create schema for using references",
+                "properties": {
+                    "x": {
+                        "type": "integer"
+                    },
+                    "y": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            "RoverController": {
+                "title": "RoverController",
+                "description": "Rover remote controlling api",
+                "xml": {
+                    "name": "RoverController"
+                }
+            },
+            "ResponseManipulator": {
+                "title": "ResponseManipulator",
+                "description": "All response will return this object",
+                "properties": {
+                    "state": {
+                        "title": "state",
+                        "description": "response status",
+                        "type": "string",
+                        "format": "string",
+                        "example": "initial"
+                    },
+                    "heading": {
+                        "title": "heading",
+                        "description": "api detail info",
+                        "type": "object",
+                        "format": "json",
+                        "example": "{'api':'MarsRover','version':'1.0'}"
+                    },
+                    "data": {
+                        "title": "data",
+                        "description": "Return to query response",
+                        "type": "object",
+                        "format": "json"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "MarsRover"
+                }
+            },
+            "Plateau": {
+                "title": "Plateau",
+                "description": "MarsRover Plateau Body Data",
+                "properties": {
+                    "size": {
+                        "$ref": "#/components/schemas/Size"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "MarsRover"
+                }
+            },
+            "Size": {
+                "title": "Size",
+                "description": "MarsRover Size Body Data",
+                "required": [
+                    "x",
+                    "y"
+                ],
+                "properties": {
+                    "x": {
+                        "title": "X",
+                        "description": "X axis length",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 10
+                    },
+                    "y": {
+                        "title": "Y",
+                        "description": "Y axis length",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 12
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "MarsRover"
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Projects",
+            "description": "API Endpoints of Projects"
+        }
+    ],
+    "security": [
+        []
+    ]
+}

@@ -4,11 +4,53 @@ namespace App\Http\Response;
 
 use Exception;
 use Illuminate\Http\Request;
-
+/**
+ * @OA\Schema(
+ *     title="ResponseManipulator",
+ *     description="All response will return this object",
+ *     @OA\Xml(
+ *         name="MarsRover"
+ *     ),
+ * )
+ */
 class ResponseManipulator
 {
+    
+    /**
+     * @OA\Property(
+     *     title="state",
+     *     description="response status like initial,success,error",
+     *     format="string",
+     *     example="initial",
+     * )
+     *
+     * @var string
+     */
     private $state = "initial";
+    
+    /**
+     * @OA\Property(
+     *     title="heading",
+     *     format="json",
+     *     description="api detail info",
+     *     type="object",
+     *     example="{'api':'MarsRover','version':'1.0'}"
+     * )
+     *
+     * @var string
+     */
     private $heading;
+    
+    /**
+     * @OA\Property(
+     *     title="data",
+     *     format="json",
+     *     description="Return to query response",
+     *     type="object"
+     * )
+     *
+     * @var string
+     */
     private $data;
     public function __construct(){
 

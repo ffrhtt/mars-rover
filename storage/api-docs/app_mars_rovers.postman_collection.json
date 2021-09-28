@@ -1,0 +1,215 @@
+{
+	"info": {
+		"_postman_id": "ccf4782c-245e-4109-a2aa-23a492875e64",
+		"name": "app_mars_rovers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "v1",
+			"item": [
+				{
+					"name": "plateu",
+					"item": [
+						{
+							"name": "plateu_get",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_localhost}}/api/v1/plateau/get",
+									"host": [
+										"{{url_localhost}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"plateau",
+										"get"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "plateu_create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "x",
+											"value": "44",
+											"type": "text"
+										},
+										{
+											"key": "y",
+											"value": "44",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url_localhost}}/api/v1/plateau/create",
+									"host": [
+										"{{url_localhost}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"plateau",
+										"create"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "rover",
+					"item": [
+						{
+							"name": "rover_get",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_localhost}}/api/v1/rover/get",
+									"host": [
+										"{{url_localhost}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"rover",
+										"get"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "rover_get_state",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_localhost}}/api/v1/rover/get/state",
+									"host": [
+										"{{url_localhost}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"rover",
+										"get",
+										"state"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "rover_create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "x",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "y",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "f",
+											"value": "N",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url_localhost}}/api/v1/rover/create",
+									"host": [
+										"{{url_localhost}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"rover",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "rover_command",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "commands",
+											"value": "MLM",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url_localhost}}/api/v1/rover/sent/command",
+									"host": [
+										"{{url_localhost}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"rover",
+										"sent",
+										"command"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "v2",
+			"item": [
+				{
+					"name": "test",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_localhost}}/api/v2/test",
+							"host": [
+								"{{url_localhost}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"test"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

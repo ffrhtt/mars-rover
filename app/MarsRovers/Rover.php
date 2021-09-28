@@ -43,10 +43,12 @@ class Rover extends Recorder{
      */
     public function move()
     {
-        if ($this->getAxis() == 'x') 
-            $this->position->setX($this->position->getX()+1);
-        else
-            $this->position->setY($this->position->getY()+1);
+        $moveCounter = $this->getMovementDelta();
+        if ($this->getAxis() == 'x'){ 
+            $this->position->setX($this->position->getX()+(int)$moveCounter);
+        }else{
+            $this->position->setY($this->position->getY()+(int)$moveCounter);
+        }
     }
     /**
      * Get to current axis from facing
@@ -55,6 +57,15 @@ class Rover extends Recorder{
     public function getAxis()
     {
         return in_array($this->position->getF(),['N','S'])?'y':'x';
+    }
+    /**
+     * North and East movement must be positive
+     * South and West movement must be negative
+     * @return of 'x' or 'y'
+     */
+    public function getMovementDelta()
+    {
+        return in_array($this->position->getF(),['N','E'])?1:-1;
     }
     /**
      * Turn the facing +90 degree left

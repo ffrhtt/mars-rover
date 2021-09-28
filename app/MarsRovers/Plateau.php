@@ -6,7 +6,22 @@ use App\MarsRovers\Size;
 use App\MarsRovers\Position;
 use Exception;
 
+/**
+ * @OA\Schema(
+ *     title="Plateau",
+ *     description="MarsRover Plateau Body Data",
+ *     @OA\Xml(
+ *         name="MarsRover"
+ *     ),
+ * )
+ */
 class Plateau extends Recorder{
+    /**
+     * @OA\Property(
+     *   property="size",
+     *   ref="#/components/schemas/Size"
+     * )
+     */
     protected $size;
     /**
      * Memory Adress

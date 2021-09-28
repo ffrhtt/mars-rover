@@ -81,7 +81,7 @@
 </li>
 <li>/api/v2 <strong>(for future)</strong></li>
 </ul>
-<p>For more detail check to the <code>.\docs</code> folder.</p>
+<p>For more detail check to the <code>.\storage\api-docs</code> folder.</p>
 
     </body>
 </html>

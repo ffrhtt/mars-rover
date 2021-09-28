@@ -98,7 +98,7 @@ class RoverTest extends TestCase
         assertEquals($expectedPosition,$rover->getPosition());
     }
     /**
-     * A basic feature test example.
+     * A basic feature test run.
      *
      * @return void
      */
@@ -113,5 +113,82 @@ class RoverTest extends TestCase
         $decoder = new CommandsNasa();
         $rover->run($decoder->decode($nasaCommands));
         assertEquals($expectedPosition,$rover->getPosition());
+    }
+    /**
+     * A basic feature test get axis line.
+     *
+     * @return void
+     */
+    public function test_get_axis()
+    {
+        $expectedAxis = 'x';
+
+        $plateu = new Plateau(new Size(10,20));
+        $initialPositon = new Position(0,0,'N');
+        $rover = new Rover($initialPositon,$plateu);
+        $rover->turnLeft();
+        assertEquals($expectedAxis,$rover->getAxis());
+    }
+    /**
+     * A basic feature test axis line 2.
+     *
+     * @return void
+     */
+    public function test_get_axis2()
+    {
+        $expectedAxis = 'y';
+
+        $plateu = new Plateau(new Size(10,20));
+        $initialPositon = new Position(0,0,'N');
+        $rover = new Rover($initialPositon,$plateu);
+        $rover->turnLeft();
+        $rover->turnLeft();
+        assertEquals($expectedAxis,$rover->getAxis());
+    }
+    /**
+     * A basic feature test move 2.
+     *
+     * @return void
+     */
+    public function test_move2()
+    {
+        $expectedPosition = new Position(-1,1,'W');
+        $initialPositon = new Position(0,0,'N');
+
+        $plateu = new Plateau(new Size(10,20));
+        $rover = new Rover($initialPositon,$plateu);
+        $rover->move();
+        $rover->turnLeft();
+        $rover->move();
+        assertEquals($expectedPosition,$rover->getPosition());
+    }
+    /**
+     * A basic feature test example.
+     *
+     * @return void
+     */
+    public function test_get_movement_delta()
+    {
+        $expected = 1;
+        $initialPositon = new Position(0,0,'N');
+
+        $plateu = new Plateau(new Size(10,20));
+        $rover = new Rover($initialPositon,$plateu);
+        assertEquals($expected,$rover->getMovementDelta());
+    }
+    /**
+     * A basic feature test example.
+     *
+     * @return void
+     */
+    public function test_get_movement_delta2()
+    {
+        $expected = -1;
+        $initialPositon = new Position(0,0,'N');
+
+        $plateu = new Plateau(new Size(10,20));
+        $rover = new Rover($initialPositon,$plateu);
+        $rover->turnLeft();
+        assertEquals($expected,$rover->getMovementDelta());
     }
 }
