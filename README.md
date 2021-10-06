@@ -49,5 +49,5 @@ There are all models in <code>.\app\Http\Controllers\V1</code> and <code>.\app\H
 - /api/v2 **(for future)**
 
 
-For more detail check to the <code>.\docs</code> folder.
+For more detail check to the <code>./storage/api-docs/api-docs.json</code> folder.
 
