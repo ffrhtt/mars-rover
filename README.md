@@ -25,6 +25,9 @@ Mars Rover is a RESTful API. The project is purpose creating plateau and rover a
 - Open the new Terminal in this folder and run <code>php artisan test</code>
 ## Working Logic
 
+##### Swagger
+https://app.swaggerhub.com/apis/ffrhtt/mars-rover_documentation/1.0.0
+
 ##### Versioning
 New versioning can defined with url by routes in <code>App\Providers\RouteServiceProvider</code> in function <code>mapApiRoutes()</code>. And <code>.\config\app.php</code> in api_latest indicates to latest version. In addition this already using  <code>.\routes\api_v1.php</code>,<code>.\routes\api_v2.php</code>  folder.
 
